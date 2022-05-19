@@ -4,7 +4,7 @@ terraform {
 
 ## Variables:
 locals {
-  global_vars   = read_terragrunt_config(find_in_parent_folders("global.hcl", "fallback.hcl"))
+  global_vars   = read_terragrunt_config(find_in_parent_folders("global.hcl"))
   project_id    = try(local.global_vars.locals.project_id, "example")
   activate_apis = try(local.global_vars.locals.activate_apis, ["compute.googleapis.com"])
 }
